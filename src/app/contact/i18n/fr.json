@@ -1,0 +1,13 @@
+{
+    "CONTACTUS": "Contacter Nous",
+    "FIELDREQUIRED": "* Ce champ est requis",
+    "ERROREMAIL": "Cela doit être un email valide!",
+    "INFORMATION":{
+        "EMAIL": "Votre Email",
+        "NAME": "Votre Nom",
+        "PHONE": "Votre Numéro de Téléphone",
+        "MAIL": "Votre Message"
+    },
+    "SEND": "Envoyer",
+    "MAILSENT": "Votre message a été envoyé, Merci"
+}

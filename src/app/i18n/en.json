@@ -1,0 +1,7 @@
+{
+    "ERROR": {
+        "404": "Le contenu que vous avez demandé n'existe pas",
+        "401": "Vous n'avez pas le droit d'effectuer cette opération.",
+        "500": "Service inaccessible pour le moment."
+    }
+}

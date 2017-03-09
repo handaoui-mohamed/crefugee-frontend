@@ -1,0 +1,24 @@
+{
+    "EMAIL": "Email",
+    "LOGIN": "Se connecter",
+    "USERNAME": "Nom d'utilisateur",
+    "PASSWORD": "Mot de Passe",
+    "REMEMBERME": "Rester connecté ?",
+    "NOACCOUNT": "Pas encore membre ?",
+    "WITHACCOUNT": "Déja un Membre ?",
+    "CREATEACCOUNT": " Créer un compte ",
+    "REGISTER": "S'inscrire",
+    "CONFIRMPASSWORD": "Confirmer Mot de Passe",
+    "FIELD":{
+        "REQUIRED": "* Ce champ est requis",
+        "PASSWORDLENGTH": "Mot de passe doit être supèrieur à 8!",
+        "PASSWORDMATCH": "les mots de passe ne correspondent pas!",
+        "EMAILERROR": "Cela doit être un email valide!"
+    },
+    "CONNECTING": "En cours de connexion ...",
+    "REGISTERSUCCESS": "Création de compte avec succès:",
+    "REDIRECTING": "Redirection vers votre profil ...",
+    "HELLO": "Bonjour",
+    "USEREXIST": "Le nom d'utilisateur ou mot de passe incorrect!",
+    "CONNECTIONERROR": "Erreur de connexion:"
+}

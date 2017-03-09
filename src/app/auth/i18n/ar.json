@@ -1,0 +1,24 @@
+{
+    "EMAIL": "البريد الإلكتروني",
+    "LOGIN": "تسجيل الدخول",
+    "USERNAME":"اسم المستخدم",
+    "PASSWORD": "كلمة السر",
+    "REMEMBERME": "ابق على اتصال؟",
+    "NOACCOUNT": "ليس عضوا؟",
+    "WITHACCOUNT": "عضو بالفعل؟",
+    "CREATEACCOUNT": "إفتح حساب",
+    "REGISTER": "تسجيل",
+    "CONFIRMPASSWORD": "تأكيد كلمة السر",
+    "FIELD":{
+        "REQUIRED": "* هذا الحقل مطلوب",
+        "PASSWORDLENGTH": "يجب أن تكون كلمة السر أكثر من 8",
+        "PASSWORDMATCH": "كلمات السر لا تتطابق",
+        "EMAILERROR": "يجب أن يكون عنوان بريد إلكتروني صالح"
+    },
+    "CONNECTING": "... جاري الدخول",
+    "REGISTERSUCCESS": ":إنشاء الحساب بنجاح",
+    "REDIRECTING": "... التوجيه الى ملفك الشخصي",
+    "HELLO": "مرحبا",
+    "USEREXIST": "اسم المستخدم أو كلمة المرور غير صحيحة",
+    "CONNECTIONERROR": "خطأ في التسجل"
+}

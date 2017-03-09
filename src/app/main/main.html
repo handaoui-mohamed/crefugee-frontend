@@ -1,0 +1,15 @@
+<div id="main">
+    <!-- navbar -->
+    <a href="" ng-click="vm.changeLanguage('fr')">francais</a>
+    <a href="" ng-click="vm.changeLanguage('ar')">Arabe</a>
+    <a href="" ng-click="vm.changeLanguage('en')">English</a>
+    <hr>
+    <a ui-sref='main' translate="HOME"></a>
+    <a ui-sref='auth'>login</a>
+    <a ui-sref='main.profile'>profile</a>
+    <a ui-sref='main.search'>search</a>
+
+    <div ui-view></div>
+
+    <!-- footer -->
+</div>

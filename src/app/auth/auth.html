@@ -1,0 +1,85 @@
+<!-- exemple d'un formulaire de connexion avec la validation -->
+<div id="login" class="animate form">
+    <form autocomplete="on" name="loginForm" novalidate>
+        <h2 translate="LOGIN">Se connecter</h2>
+        <p>
+            <label for="username" class="uname"><span translate="USERNAME"></span></label>
+            <input id="username" required name="username" type="text" ng-model="vm.user.username" />
+            <div ng-messages="loginForm.username.$error" ng-if="loginForm.username.$touched">
+                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+            </div>
+        </p>
+        <p>
+            <label for="password" class="youpasswd"><span translate="PASSWORD"></span></label>
+            <input id="password" required name="password" ng-minlength="8" type="password" ng-model="vm.user.password" />
+            <div class="ng-alert" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
+                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+                <p class="alert" role="alert" ng-message="minlength" translate="FIELD.PASSWORDLENGTH"></p>
+            </div>
+        </p>
+        <div class="checkbox">
+            <label>
+						<input type="checkbox" value="" ng-model="vm.user.remember_me">
+						<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+						{{ 'REMEMBERME' | translate }}
+					</label>
+        </div>
+        <p class="login button">
+            <input type="submit" value="{{ 'LOGIN' | translate }}" ng-click="vm.loginUser()" ng-disabled="vm.disableSubmit || loginForm.$invalid || loginForm.$pristine" />
+        </p>
+        <p class="change_link">
+            <span translate="NOACCOUNT"></span>
+            <a href="#toregister" class="to_register" ng-click="vm.register = !vm.register" translate="REGISTER"></a>
+        </p>
+    </form>
+</div>
+
+<!-- exemple d'un formulaire d'inscription avec la validation -->
+<div class="animate form">
+    <form autocomplete="on" name="registerForm" novalidate>
+        <h2 translate="CREATEACCOUNT"></h2>
+        <p>
+            <label for="usernamesignup" class="uname"><span translate="USERNAME"></span></label>
+            <input id="usernamesignup" required name="username" type="text" ng-model="vm.user.username" />
+            <div ng-messages="registerForm.username.$error" class="ng-alert" ng-if="registerForm.username.$touched">
+                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+            </div>
+        </p>
+        <p>
+            <label for="emailsignup" class="youmail"><span translate="EMAIL"></span></label>
+            <input id="emailsignup" required type="email" name="email" ng-pattern="/^.+@.+\..+$/" ng-model="vm.user.email" />
+            <div ng-messages="registerForm.email.$error" class="ng-alert" ng-if="registerForm.email.$touched">
+                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+                <p class="alert" role="alert" ng-message="pattern" translate="FIELD.EMAILERROR"></p>
+            </div>
+        </p>
+        <p>
+            <label for="passwordsignup" class="youpasswd"><span translate="PASSWORD"></span></label>
+            <input id="passwordsignup" required type="password" ng-minlength="8" name="password" ng-model="vm.user.password" />
+            <div ng-messages="registerForm.password.$error" class="ng-alert" ng-if="registerForm.password.$touched">
+                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+                <p class="alert" role="alert" ng-message="minlength" translate="FIELD.PASSWORDLENGTH"></p>
+            </div>
+        </p>
+        <p>
+            <label for="passwordsignup_confirm" class="youpasswd">
+						<span translate="CONFIRMPASSWORD"></span>
+					</label>
+            <input id="passwordsignup_confirm" ng-minlength="8" ng-model="vm.confirm_password" required type="password" name="confirmPassword" />
+            <div ng-messages="registerForm.confirmPassword.$error" class="ng-alert" ng-if="registerForm.confirmPassword.$touched">
+                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+            </div>
+            <div ng-if="vm.confirm_password && vm.confirm_password !== vm.user.password">
+                <p class="alert" role="alert" translate="FIELD.PASSWORDMATCH"></p>
+            </div>
+        </p>
+        <p class="signin button">
+            <input type="submit" value="{{ 'REGISTER' | translate }}" ng-click="vm.registerUser()" ng-disabled="vm.disableSubmit || !vm.confirm_password || (vm.change_password && (vm.confirm_password && vm.confirm_password !== vm.user.password))
+									 || registerForm.$invalid || registerForm.$pristine" />
+        </p>
+        <p class="change_link">
+            <span translate="WITHACCOUNT"></span>
+            <a href="#tologin" class="to_register" ng-click="vm.register = !vm.register" translate="LOGIN"></a>
+        </p>
+    </form>
+</div>
