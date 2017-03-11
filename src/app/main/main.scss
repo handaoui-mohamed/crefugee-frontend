@@ -1,6 +1,6 @@
 .main-page {
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     background: #fff;
     a {
         transition: 0.5s all;
@@ -11,6 +11,7 @@
         text-decoration: none;
         outline: none;
     }
+    .language {}
     .contact-text {
         min-height: 400px;
     }
@@ -26,13 +27,13 @@
         color: #1b242f;
         font-size: 2em;
         font-weight: 300;
-        font-family: " Lato', sans-serif";
+        font-family: "Lato", sans-serif;
         margin-top: 1em;
         padding: 0 0 0.2em 0;
     }
     .service-head h3 span {
         font-weight: 700;
-        font-family: 'Lato', sans-serif;
+        font-family: "Lato", sans-serif;
     }
     .service-head h4 {
         font-size: 1.3em;
@@ -40,6 +41,7 @@
         background: #1396e2;
         display: inline-block;
         margin-top: 2em;
+        margin-left: 4em;
         padding: .5em 1.5em;
         position: relative;
         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -102,7 +104,7 @@
         margin: 4em 0 0;
     }
     .footer-bottom h2 {
-        font-family: "Lato', sans-serif";
+        font-family: "Lato", sans-serif;
         font-size: 3.5em;
         display: inline-block;
         position: relative;
@@ -116,7 +118,7 @@
         display: block;
         letter-spacing: 5px;
         text-transform: uppercase;
-        font-family: "Lato', sans-serif";
+        font-family: "Lato", sans-serif;
         padding-top: 6px;
     }
     .footer-bottom h2 b {
@@ -247,7 +249,7 @@
     }
     .banner-info h3 {
         font-size: 3em;
-        font-family: "Lato', sans-serif";
+        font-family: "Lato", sans-serif;
         color: #fff;
         margin-top: 35%;
         line-height: 1.8em;
@@ -369,7 +371,7 @@
     h5,
     h6 {
         margin: 0;
-        font-family: "Lato', sans-serif";
+        font-family: "Lato", sans-serif;
     }
     p {
         margin: 0;
@@ -511,7 +513,7 @@
         z-index: 9;
         font-size: 1.3em;
         outline: none;
-        font-family: "Lato', sans-serif";
+        font-family: "Lato", sans-serif;
         letter-spacing: 1px;
     }
     .wthree-btn:focus {
@@ -781,7 +783,7 @@
         padding: 11px 50px;
         font-size: 21px;
         width: 100%;
-        font-family: "Lato', sans-serif";
+        font-family: "Lato", sans-serif;
         background-color: rgba(0, 0, 0, 0.22);
     }
     /*-- /Contact Section --*/
@@ -797,7 +799,7 @@
     }
     h3.w3stitle {
         font-size: 3em;
-        font-family: "Lato', sans-serif";
+        font-family: "Lato", sans-serif;
         color: #000000;
         margin-top: 5%;
         text-align: center;
@@ -806,7 +808,7 @@
     h3.w3stitle span {
         font-weight: 900;
         color: #000000;
-        font-family: "Lato', sans-serif";
+        font-family: "Lato", sans-serif;
     }
     /*-- Effect 1--*/
     .services-grid span {
@@ -866,7 +868,7 @@
     /*-- //Effect1 --*/
     .services-grid h5 {
         font-size: 1.7em;
-        font-family: 'Lato', sans-serif;
+        font-family: "Lato", sans-serif;
         margin: 1em 0 .5em;
         color: #000000;
         font-weight: 400;
@@ -898,7 +900,7 @@
     .testi-right h4 span {
         font-weight: 400;
         font-size: 0.6em;
-        font-family: 'Lato', sans-serif;
+        font-family: "Lato", sans-serif;
         text-transform: capitalize;
         color: #999;
     }
@@ -1048,11 +1050,11 @@
         }
         .services-grid h5 {
             font-size: 1.5em;
-            font-family: 'Lato', sans-serif;
+            font-family: "Lato", sans-serif;
         }
         .services-grid span {
             font-size: 1.8em;
-            font-family: 'Lato', sans-serif;
+            font-family: "Lato", sans-serif;
         }
         .video-right {
             margin: 3em 0 0;
@@ -1434,7 +1436,7 @@
         }
         .services-grid h5 {
             font-size: 1.3em;
-            font-family: 'Lato', sans-serif;
+            font-family: "Lato", sans-serif;
         }
         .services-grid {
             padding: 0 .5em;
@@ -1529,7 +1531,7 @@
         }
         .services-grid h5 {
             margin: 1em 0 .2em;
-            font-family: 'Lato', sans-serif;
+            font-family: "Lato", sans-serif;
         }
         .w3ls-effect11 h5 {
             font-size: 1.2em;
@@ -1827,7 +1829,7 @@
     font-family: 'Open Sans',
     sans-serif;
     h1 {
-        font-family: 'Raleway', sans-serif;
+        font-family: "Lato", sans-serif;
         font-size: 50px;
         font-weight: 700;
         text-align: center;
@@ -1935,7 +1937,7 @@
         border: none;
         padding: 0;
         font-size: 14px;
-        font-family: "Open Sans", sans-serif;
+        font-family: "Lato", sans-serif;
         font-weight: 500;
         color: #CCC;
     }
@@ -2070,7 +2072,7 @@
         border: none;
         padding: 0;
         font-size: 14px;
-        font-family: "Open Sans", sans-serif;
+        font-family: "Lato", sans-serif;
         font-weight: 400px;
         color: #aab8c2;
     }
@@ -2446,7 +2448,7 @@
         outline: none;
         color: #000;
         font-weight: 500;
-        font-family: 'Roboto', sans-serif;
+        font-family: "Lato", sans-serif;
     }
     .contact-form textarea {
         height: 100px;

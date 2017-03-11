@@ -16,15 +16,32 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right cl-effect-15">
                 <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                <li><a class="page-scroll" ui-sref="main" data-hover="Home">Home</a></li>
-                <li><a class="page-scroll" href="#services" data-hover="Services">Services</a></li>
-                <li><a class="page-scroll" href="#staff" data-hover="Our Staff">Our Staff</a></li>
-                <li><a class="page-scroll" href="#gallery" data-hover="Gallery">Gallery</a></li>
-                <li><a class="page-scroll" href="#prices" data-hover="Prices">Prices</a></li>
-
+                <li>
+                    <a class="page-scroll" ui-sref="main.home" translate="home"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" ui-sref="main.search({type:'refugee'})" translate="fhelp"> </a>
+                </li>
+                <li>
+                    <a class="page-scroll" translate="phelp" ui-sref="main.search({type:'helper'})"></a>
+                </li>
                 <li ng-if="current_user"><a class="page-scroll" ui-sref="main.profile" data-hover="{{ current_user.full_name || current_user.user.username}}" style="text-transform: capitalize">{{ current_user.full_name || current_user.user.username}}</a></li>
-                <li class="w3ls-navlog" ng-if="!current_user"><a class="page-scroll" ui-sref="auth" data-toggle="modal" data-hover="LOGIN">LOGIN</a></li>
-                <li class="w3ls-navlog" ng-if="current_user"><a class="page-scroll" href="" ng-click="vm.logout()" data-toggle="modal" data-hover="LOGOUT">LOGOUT</a></li>
+                <li class="w3ls-navlog" ng-if="!current_user">
+                    <a class="page-scroll" ui-sref="auth" data-toggle="modal" translate="login"></a>
+                </li>
+                <li class="w3ls-navlog" ng-if="current_user">
+                    <a class="page-scroll" href="" ng-click="vm.logout()" data-toggle="modal" translate="logout"></a>
+                </li>
+
+                <li>
+                    <a class="page-scroll language" href="" ng-click="vm.changeLanguage('en')">English</a>
+                </li>
+                <li>
+                    <a class="page-scroll language" href="" ng-click="vm.changeLanguage('fr')">Français</a>
+                </li>
+                <li>
+                    <a class="page-scroll language" href="" ng-click="vm.changeLanguage('ar')" ;>العربية</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -39,7 +56,7 @@
     <div class="footer">
         <div class="footer-bottom">
             <h2><a href="index.html"><b>T<br>H<br>E</b> Refugees<span> Connected</span></a></h2>
-            <p class="fo-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+            <p class="fo-para" translate="hadra"></p>
             <ul class="social-fo">
                 <li><a href="#" class=" face"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                 <li><a href="#" class=" twi"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -48,44 +65,21 @@
             </ul>
             <div class=" address">
                 <div class="col-md-4 fo-grid1">
-                    <p><i class="fa fa-home" aria-hidden="true"></i>12K Street , 45 Building Road Canada.</p>
+                    <p><i class="fa fa-home" aria-hidden="true" translate="adr"></i></p>
                 </div>
                 <div class="col-md-4 fo-grid1">
-                    <p><i class="fa fa-phone" aria-hidden="true"></i>+1234 758 839 , +1273 748 730</p>
+                    <p><i class="fa fa-phone" aria-hidden="true"></i>+213699052734</p>
                 </div>
                 <div class="col-md-4 fo-grid1">
-                    <p><a href="mailto:info@example.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>info@example1.com</a></p>
+                    <p><a href="mailto:et_ould_said@eis.dz"><i class="fa fa-envelope-o" aria-hidden="true"></i>et_ould_said@esi.dz</a></p>
                 </div>
                 <div class="clearfix"></div>
 
             </div>
         </div>
-        <div class="copy-right">
-            <p> &copy; 2016 Big store. All Rights Reserved | Design by <a href="http://w3layouts.com/"> W3layouts</a></p>
-        </div>
     </div>
 
 </div>
-
-<script src="../../assets/js/SmoothScroll.min.js"></script>
-<!-- //jarallax -->
-<!-- ResponsiveTabs js -->
-<script src="../../assets/js/easyResponsiveTabs.js" type="text/javascript"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#horizontalTab').easyResponsiveTabs({
-            type: 'default', //Types: default, vertical, accordion           
-            width: 'auto', //auto or any width like 600px
-            fit: true // 100% fit in a container
-        });
-    });
-</script>
-<!-- //ResponsiveTabs js -->
-<!-- Scrolling Nav JavaScript -->
-<script src="../../assets/js/scrolling-nav.js"></script>
-<!-- //pop-up-box -->
-<!-- start-smooth-scrolling -->
-<script type="text/javascript" src="../../assets/js/move-top.js"></script>
 
 
 <div id="user-chat" ng-if="current_user" ng-init="vm.hideChat = true">

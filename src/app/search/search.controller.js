@@ -5,7 +5,7 @@
         .module('main.search')
         .controller('SearchController', SearchController);
 
-    function SearchController($stateParams, TagService, HelperPostService, RefugeePostService, PostService, ErrorToast) {
+    function SearchController($translate, $stateParams, Upload, API_ENDPOINT, toastr, TagService, HelperPostService, RefugeePostService, PostService, ErrorToast) {
         var vm = this;
         vm.postService = null;
         vm.page = 1;
@@ -45,12 +45,12 @@
         vm.getTagName = getTagName;
         vm.removeTag = removeTag;
         vm.uploadPostPicture = uploadPostPicture;
-        vm.addPost = addPos
+        vm.addPost = addPost;
 
         function addPost() {
-            PostService.save(vmSr.newPost, function(data) {
-
-                vm.uploadPostPicture(vmSr.postfile, data.element.id);
+            vm.newPost.tags = vm.selectedTags;
+            PostService.save(vm.newPost, function(data) {
+                vm.uploadPostPicture(vm.postfile, data.element.id);
             }, function(error) {
 
             });

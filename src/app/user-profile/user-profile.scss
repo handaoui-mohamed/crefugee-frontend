@@ -65,7 +65,7 @@
         font-family: 'Open Sans', sans-serif;
     }
     .navigation-right ul li.active a {
-        color: #00a78e;
+        color: #1396e2;
     }
     span.menu {
         display: none;
@@ -86,8 +86,8 @@
         overflow: hidden;
         padding: 10px 0;
         max-width: 0;
-        border-bottom: 3px solid #00a78e;
-        color: #00a78e;
+        border-bottom: 3px solid #1396e2;
+        color: #1396e2;
         content: attr(data-hover);
         -webkit-transition: max-width 0.5s;
         -moz-transition: max-width 0.5s;
@@ -129,7 +129,7 @@
     .header-right h1 {
         font-size: 1.2em;
         color: #FFF;
-        background: #00a78e;
+        background: #1396e2;
         display: inline-block;
         padding: .5em 1.5em;
         position: relative;
@@ -144,12 +144,12 @@
         left: 12px;
         border-style: solid;
         border-width: 14px 11px 0 12px;
-        border-color: #00a78e transparent transparent transparent;
+        border-color: #1396e2 transparent transparent transparent;
     }
     .service-head h4 {
         font-size: 1.2em;
         color: #FFF;
-        background: #00a78e;
+        background: #1396e2;
         display: inline-block;
         padding: .5em 1.5em;
         position: relative;
@@ -164,7 +164,7 @@
         left: 12px;
         border-style: solid;
         border-width: 14px 11px 0 12px;
-        border-color: #00a78e transparent transparent transparent;
+        border-color: #1396e2 transparent transparent transparent;
     }
     .header-right h6 {
         font-size: 1em;
@@ -196,7 +196,7 @@
         text-decoration: none;
     }
     ul.address li ul.address-text li a:hover {
-        color: #00a78e;
+        color: #1392e2;
     }
     ul.address-text b {
         color: #fff;
@@ -205,7 +205,7 @@
     ul.social-icons {
         display: block;
         padding: 0;
-        background: #00a78e;
+        background: #1392e2;
         padding: 1.3em 0;
         text-align: center;
         margin: 0;
@@ -247,7 +247,7 @@
         background-position: 3px -94px;
     }
     .social-icons li a:hover::before {
-        border-color: #00a78e;
+        border-color: #1392e2;
         box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     /*-- wellcome-note --*/
@@ -299,7 +299,7 @@
     }
     .news-text h3 a,
     ul.news li:hover i {
-        color: #00a78e;
+        color: #1392e2;
         text-decoration: none;
     }
     ul.news li {
@@ -319,8 +319,8 @@
     a.read {
         padding: 0.5em 1.5em;
         font-size: 1em;
-        color: #00a78e;
-        border: 2px solid #00a78e;
+        color: #1392e2;
+        border: 2px solid #1392e2;
         text-decoration: none;
         border-radius: 1.5em;
         -webkit-border-radius: 1.5em;
@@ -329,7 +329,7 @@
         -ms-border-radius: 1.5em;
     }
     a.read:hover {
-        background: #00a78e;
+        background: #1392e2;
         color: #fff;
     }
     ul.news {
@@ -358,7 +358,7 @@
         font-size: 0.9em;
     }
     h4.tittle {
-        color: #00a78e;
+        color: #1392e2;
         text-decoration: none;
         font-size: 1.4em;
         margin: 1em 0 0.5em 0;
@@ -391,7 +391,7 @@
     span.border:after {
         content: ' ';
         position: absolute;
-        background: #00a78e;
+        background: #1392e2;
         height: 7px;
         display: block;
         width: 73px;
@@ -401,7 +401,7 @@
     span.border.one:after {
         content: ' ';
         position: absolute;
-        background: #00a78e;
+        background: #1392e2;
         height: 7px;
         display: block;
         width: 73px;

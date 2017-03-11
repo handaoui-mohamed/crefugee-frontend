@@ -12,7 +12,7 @@
             controller: 'MainController as vm',
             templateUrl: 'app/main/main.html'
         });
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/home');
 
         // angular-translate configuration
         $translateProvider.useLoader('$translatePartialLoader', {
@@ -20,7 +20,7 @@
         });
 
         $translateProvider.preferredLanguage('en');
-        $translateProvider.useSanitizeValueStrategy('sanitize');
+        // $translateProvider.useSanitizeValueStrategy('sanitize');
         $translatePartialLoaderProvider.addPart('app');
 
         angular.extend(toastrConfig, {
