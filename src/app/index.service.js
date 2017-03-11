@@ -4,7 +4,9 @@
     angular
         .module('app')
         .factory('UserService', UserService)
-        .factory('ErrorToast', ErrorToast);
+        .factory('TagService', TagService)
+        .factory('ErrorToast', ErrorToast)
+        .factory('MessageService', MessageService);
 
     function UserService($resource, API_ENDPOINT) {
         return $resource(API_ENDPOINT + 'users/:userId', { userId: '@id' }, {
@@ -14,6 +16,24 @@
             },
             'update': {
                 method: 'PUT'
+            }
+        });
+    }
+
+    function TagService($resource, API_ENDPOINT) {
+        return $resource(API_ENDPOINT + 'tags/:tagId', { tagId: '@id' }, {
+            'get': {
+                method: 'GET',
+                isArray: false
+            }
+        });
+    }
+
+    function MessageService($resource, API_ENDPOINT) {
+        return $resource(API_ENDPOINT + 'message/:receiverId/:page', { receiverId: '@id', page: '@id' }, {
+            'get': {
+                method: 'GET',
+                isArray: false
             }
         });
     }

@@ -20,6 +20,8 @@
             'app.contact',
             'app.auth',
             'main.profile',
-            'main.search'
+            'main.search',
+            'app.userprofile',
+            "main.home"
         ]);
 })();

@@ -1,85 +1,308 @@
-<!-- exemple d'un formulaire de connexion avec la validation -->
-<div id="login" class="animate form">
-    <form autocomplete="on" name="loginForm" novalidate>
-        <h2 translate="LOGIN">Se connecter</h2>
-        <p>
-            <label for="username" class="uname"><span translate="USERNAME"></span></label>
-            <input id="username" required name="username" type="text" ng-model="vm.user.username" />
-            <div ng-messages="loginForm.username.$error" ng-if="loginForm.username.$touched">
-                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
-            </div>
-        </p>
-        <p>
-            <label for="password" class="youpasswd"><span translate="PASSWORD"></span></label>
-            <input id="password" required name="password" ng-minlength="8" type="password" ng-model="vm.user.password" />
-            <div class="ng-alert" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
-                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
-                <p class="alert" role="alert" ng-message="minlength" translate="FIELD.PASSWORDLENGTH"></p>
-            </div>
-        </p>
-        <div class="checkbox">
-            <label>
-						<input type="checkbox" value="" ng-model="vm.user.remember_me">
+<style>
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    dl,
+    dt,
+    dd,
+    ol,
+    nav ul,
+    nav li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+        display: block;
+    }
+    
+    ol,
+    ul {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    blockquote,
+    q {
+        quotes: none;
+    }
+    
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+        content: '';
+        content: none;
+    }
+    
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    /* start editing from here */
+    
+    a {
+        text-decoration: none;
+    }
+    
+    .txt-rt {
+        text-align: right;
+    }
+    /* text align right */
+    
+    .txt-lt {
+        text-align: left;
+    }
+    /* text align left */
+    
+    .txt-center {
+        text-align: center;
+    }
+    /* text align center */
+    
+    .float-rt {
+        float: right;
+    }
+    /* float right */
+    
+    .float-lt {
+        float: left;
+    }
+    /* float left */
+    
+    .clear {
+        clear: both;
+    }
+    /* clear float */
+    
+    .pos-relative {
+        position: relative;
+    }
+    /* Position Relative */
+    
+    .pos-absolute {
+        position: absolute;
+    }
+    /* Position Absolute */
+    
+    .vertical-base {
+        vertical-align: baseline;
+    }
+    /* vertical align baseline */
+    
+    .vertical-top {
+        vertical-align: top;
+    }
+    /* vertical align top */
+    
+    nav.vertical ul li {
+        display: block;
+    }
+    /* vertical menu */
+    
+    nav.horizontal ul li {
+        display: inline-block;
+    }
+    /* horizontal menu */
+    
+    img {
+        max-width: 100%;
+    }
+    /*end reset*/
+    
+    body p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a {
+        font-family: 'Tahoma', sans-serif;
+    }
+    
+    body {
+        background: url('../../assets/images/profile_bg.jpg') no-repeat;
+        background-size: cover;
+        text-align: center;
+        background-position: center;
+        background-attachment: fixed;
+    }
+</style>
+<div id="auth">
+
+    <!--header-->
+    <div class="agileheader">
+        <h1 style="font-size:20px">Connect Refugees</h1>
+    </div>
+    <!--//header-->
+
+    <!--main-->
+    <div class="main-w3l">
+        <div class="w3layouts-main">
+            <h2 translate="SIGNIN"></h2>
+            <form name="loginForm" novalidate>
+                <p>
+                    <input placeholder="{{'USERNAME' | translate}}" id="username" required name="username" type="text" ng-model="vm.user_to_login.username" />
+                    <div ng-messages="loginForm.username.$error" ng-if="loginForm.username.$touched">
+                        <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+                    </div>
+                </p>
+                <p>
+                    <input id="password" required name="password" ng-minlength="8" type="password" ng-model="vm.user_to_login.password" placeholder="{{'PASSWORD' | translate}}" />
+                    <div class="ng-alert" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
+                        <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+                        <p class="alert" role="alert" ng-message="minlength" translate="FIELD.PASSWORDLENGTH"></p>
+                    </div>
+                </p>
+
+                <div class="checkbox">
+                    <label style="color:#fff; margin-top:10px">
+						<input type="checkbox" value="" ng-model="vm.user_to_login.remember_me"> 
 						<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 						{{ 'REMEMBERME' | translate }}
 					</label>
+                </div>
+                <input type="submit" value="{{'SIGNIN' | translate }}" ng-click="vm.loginUser()" ng-disabled="vm.disableLogin">
+            </form>
+            <div class="social_icons agileinfo">
+                <div class="social">
+                    <a href="" class="icon fb fo"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="" class="icon tw fo"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="" class="icon gp fo"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                </div>
+            </div>
         </div>
-        <p class="login button">
-            <input type="submit" value="{{ 'LOGIN' | translate }}" ng-click="vm.loginUser()" ng-disabled="vm.disableSubmit || loginForm.$invalid || loginForm.$pristine" />
-        </p>
-        <p class="change_link">
-            <span translate="NOACCOUNT"></span>
-            <a href="#toregister" class="to_register" ng-click="vm.register = !vm.register" translate="REGISTER"></a>
-        </p>
-    </form>
-</div>
-
-<!-- exemple d'un formulaire d'inscription avec la validation -->
-<div class="animate form">
-    <form autocomplete="on" name="registerForm" novalidate>
-        <h2 translate="CREATEACCOUNT"></h2>
-        <p>
-            <label for="usernamesignup" class="uname"><span translate="USERNAME"></span></label>
-            <input id="usernamesignup" required name="username" type="text" ng-model="vm.user.username" />
-            <div ng-messages="registerForm.username.$error" class="ng-alert" ng-if="registerForm.username.$touched">
-                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
-            </div>
-        </p>
-        <p>
-            <label for="emailsignup" class="youmail"><span translate="EMAIL"></span></label>
-            <input id="emailsignup" required type="email" name="email" ng-pattern="/^.+@.+\..+$/" ng-model="vm.user.email" />
-            <div ng-messages="registerForm.email.$error" class="ng-alert" ng-if="registerForm.email.$touched">
-                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
-                <p class="alert" role="alert" ng-message="pattern" translate="FIELD.EMAILERROR"></p>
-            </div>
-        </p>
-        <p>
-            <label for="passwordsignup" class="youpasswd"><span translate="PASSWORD"></span></label>
-            <input id="passwordsignup" required type="password" ng-minlength="8" name="password" ng-model="vm.user.password" />
-            <div ng-messages="registerForm.password.$error" class="ng-alert" ng-if="registerForm.password.$touched">
-                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
-                <p class="alert" role="alert" ng-message="minlength" translate="FIELD.PASSWORDLENGTH"></p>
-            </div>
-        </p>
-        <p>
-            <label for="passwordsignup_confirm" class="youpasswd">
-						<span translate="CONFIRMPASSWORD"></span>
+        <div class="w3layouts-main2">
+            <h3 translate="SIGNUP"></h3>
+            <form name="registerForm" novalidate>
+                <p>
+                    <input placeholder="{{'USERNAME' | translate}}" id="username" required name="username" type="text" ng-model="vm.user_to_register.username" />
+                    <div ng-messages="registerForm.username.$error" ng-if="registerForm.username.$touched">
+                        <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+                    </div>
+                </p>
+                <p>
+                    <input id="emailsignup" required type="email" name="email" placeholder="{{'EMAIL' | translate}}" ng-pattern="/^.+@.+\..+$/" ng-model="vm.user_to_register.email" />
+                    <div ng-messages="registerForm.email.$error" class="ng-alert" ng-if="registerForm.email.$touched">
+                        <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+                        <p class="alert" role="alert" ng-message="pattern" translate="FIELD.EMAILERROR"></p>
+                    </div>
+                </p>
+                <p>
+                    <input id="password" required name="password" ng-minlength="8" type="password" ng-model="vm.user_to_register.password" placeholder="{{'PASSWORD' | translate}}" />
+                    <div class="ng-alert" ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched">
+                        <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+                        <p class="alert" role="alert" ng-message="minlength" translate="FIELD.PASSWORDLENGTH"></p>
+                    </div>
+                </p>
+                <p>
+                    <input id="confirm_password" required name="confirm_password" ng-minlength="8" type="password" ng-model="vm.confirm_password" placeholder="{{'CONFIRMPASSWORD' | translate}}" />
+                    <div class="ng-alert" ng-messages="registerForm.confirm_password.$error" ng-if="registerForm.confirm_password.$touched">
+                        <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+                        <p class="alert" role="alert" ng-message="minlength" translate="FIELD.PASSWORDLENGTH"></p>
+                    </div>
+                    <div ng-if="vm.confirm_password && vm.confirm_password !== vm.user_to_register.password">
+                        <p class="alert" role="alert" translate="FIELD.PASSWORDMATCH"></p>
+                    </div>
+                </p>
+                <div class="checkbox" style="margin-bottom: -10px;">
+                    <label style="color:#fff; margin-top:10px">
+						<input type="checkbox" value="" ng-model="vm.user_to_register.is_helper"> 
+						<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+						{{ 'REFUGEE' | translate }} 
 					</label>
-            <input id="passwordsignup_confirm" ng-minlength="8" ng-model="vm.confirm_password" required type="password" name="confirmPassword" />
-            <div ng-messages="registerForm.confirmPassword.$error" class="ng-alert" ng-if="registerForm.confirmPassword.$touched">
-                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
-            </div>
-            <div ng-if="vm.confirm_password && vm.confirm_password !== vm.user.password">
-                <p class="alert" role="alert" translate="FIELD.PASSWORDMATCH"></p>
-            </div>
-        </p>
-        <p class="signin button">
-            <input type="submit" value="{{ 'REGISTER' | translate }}" ng-click="vm.registerUser()" ng-disabled="vm.disableSubmit || !vm.confirm_password || (vm.change_password && (vm.confirm_password && vm.confirm_password !== vm.user.password))
-									 || registerForm.$invalid || registerForm.$pristine" />
-        </p>
-        <p class="change_link">
-            <span translate="WITHACCOUNT"></span>
-            <a href="#tologin" class="to_register" ng-click="vm.register = !vm.register" translate="LOGIN"></a>
-        </p>
-    </form>
+                </div>
+                <input type="submit" value="{{'SIGNUP' | translate }}" ng-click="vm.registerUser()" ng-disabled="vm.disableRegister || !vm.confirm_password || (vm.change_password && (vm.confirm_password && vm.confirm_password !== vm.registerUser.password))
+									 || registerForm.$invalid || registerForm.$pristine">
+            </form>
+        </div>
+        <div class="clear"></div>
+    </div>
 </div>

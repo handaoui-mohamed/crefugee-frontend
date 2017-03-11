@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     angular
@@ -8,38 +8,40 @@
     function AuthController($log, $auth, $window, $state, $rootScope, RegisterService, toastr, ErrorToast, $translate) {
         var vm = this;
 
-        vm.register = false;
         vm.loginUser = loginUser;
         vm.registerUser = registerUser;
 
-        function registerUser(){
-            vm.disableSubmit = true;
+        function registerUser() {
+            vm.disableRegister = true;
             toastr.clear([toastr]);
-            RegisterService.save(vm.user,function(){
-                toastr.success($translate.instant("CONNECTING"),$translate.instant("REGISTERSUCCESS"));
-                vm.loginUser();
-            }, function(error){
+            RegisterService.save(vm.user_to_register, function() {
+                toastr.success($translate.instant("CONNECTING"), $translate.instant("REGISTERSUCCESS"));
+                vm.loginUser(true);
+            }, function(error) {
                 ErrorToast(error);
-                vm.disableSubmit = false;
+                vm.disableRegister = false;
             });
         }
- 
-        function loginUser(){
-            vm.disableSubmit = true;
+
+        function loginUser(registered) {
+            vm.disableLogin = true;
             toastr.clear([toastr]);
-            $auth.login(vm.user).then(function (response) {
+            $auth.login(vm.user_to_login).then(function(response) {
                 if (!response.data.errors) {
                     toastr.success($translate.instant('REDIRECTING'), $translate.instant("HELLO"));
                     $window.localStorage['current_user'] = response.data.user.id;
                     $rootScope.current_user = response.data.user;
-                    $state.go('profile');
-                }else{
-                     toastr.error($translate.instant("USEREXIST"), $translate.instant("CONNECTIONERROR"));
+                    if (registered) $state.go('main.profile');
+                    else {
+                        $state.go('userprofile', { username: $rootScope.current_user.username });
+                    }
+                } else {
+                    toastr.error($translate.instant("USEREXIST"), $translate.instant("CONNECTIONERROR"));
                 }
-                vm.disableSubmit = false;
-            }, function (error) {
+                vm.disableLogin = false;
+            }, function(error) {
                 toastr.error($translate.instant("USEREXIST"), $translate.instant("CONNECTIONERROR"));
-                vm.disableSubmit = false;
+                vm.disableLogin = false;
             });
         }
     }
