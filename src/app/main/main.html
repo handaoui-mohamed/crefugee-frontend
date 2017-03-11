@@ -88,7 +88,7 @@
 <script type="text/javascript" src="../../assets/js/move-top.js"></script>
 
 
-<div id="user-chat">
+<div id="user-chat" ng-if="current_user" ng-init="vm.hideChat = true">
 
     <!-- Chat-Widget -->
     <div class="chat-widget agileits w3layouts">
