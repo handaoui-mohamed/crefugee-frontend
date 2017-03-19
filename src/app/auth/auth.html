@@ -296,7 +296,7 @@
                     <label style="color:#fff; margin-top:10px">
 						<input type="checkbox" value="" ng-model="vm.user_to_register.is_helper"> 
 						<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-						{{ 'REFUGEE' | translate }} 
+						{{ 'IAMREFUGEE' | translate }} 
 					</label>
                 </div>
                 <input type="submit" value="{{'SIGNUP' | translate }}" ng-click="vm.registerUser()" ng-disabled="vm.disableRegister || !vm.confirm_password || (vm.change_password && (vm.confirm_password && vm.confirm_password !== vm.registerUser.password))

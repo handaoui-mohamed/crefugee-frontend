@@ -19,5 +19,5 @@
     "HELLO": "مرحبا",
     "USEREXIST": "اسم المستخدم أو كلمة المرور غير صحيحة",
     "CONNECTIONERROR": "خطأ في التسجل",
-    "REFUGEE": "لاجئ"
+    "IAMREFUGEE": "لاجئ"
 }

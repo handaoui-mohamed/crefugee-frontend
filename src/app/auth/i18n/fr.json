@@ -18,5 +18,5 @@
     "HELLO": "Bonjour",
     "USEREXIST": "Le nom d'utilisateur ou mot de passe incorrect!",
     "CONNECTIONERROR": "Erreur de connexion:",
-    "REFUGEE": "Je suis un Réfugié"
+    "IAMREFUGEE": "Je suis un Réfugié"
 }
