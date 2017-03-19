@@ -11,10 +11,10 @@
         vm.default_profile_image = "assets/images/avatar.png";
         vm.default_post_image = "assets/images/default_thumbnail.jpg"
 
-        UserService.get({ userId: $stateParams.username }, function(data) {
+        UserService.get({ username: $stateParams.username }, function(data) {
             vm.user = data.element;
         }, function(errors) {
-            $state.go('search');
+            $state.go('home');
             ErrorToast(errors);
         });
 

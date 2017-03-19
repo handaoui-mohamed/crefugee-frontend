@@ -3,15 +3,11 @@
 
     angular
         .module('app', [
-            'ngSanitize',
             'ui.router',
             'ngResource',
-            'ngAnimate',
-            'ngCookies',
             'ngTouch',
             'ngMessages',
             'ngAria',
-            'ui.multiselect',
             'pascalprecht.translate',
             'toastr',
 

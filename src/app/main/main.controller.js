@@ -11,12 +11,12 @@
 
         vm.default_profile_image = "assets/images/avatar.png";
 
-        UserService.get(function(data) {
-            vm.users = data.elements;
-            vm.user = $rootScope.current_user;
-        }, function(error) {
-            ErrorToast(error);
-        });
+        // UserService.get(function(data) {
+        //     vm.users = data.elements;
+        //     vm.user = $rootScope.current_user;
+        // }, function(error) {
+        //     ErrorToast(error);
+        // });
 
         vm.logout = logout;
         vm.state = $state;

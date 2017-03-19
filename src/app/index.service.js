@@ -13,9 +13,6 @@
             'get': {
                 method: 'GET',
                 isArray: false
-            },
-            'update': {
-                method: 'PUT'
             }
         });
     }
@@ -30,7 +27,7 @@
     }
 
     function MessageService($resource, API_ENDPOINT) {
-        return $resource(API_ENDPOINT + 'message/:receiverId/:page', { receiverId: '@id', page: '@id' }, {
+        return $resource(API_ENDPOINT + 'messages/:receiverId/:page', { receiverId: '@id', page: '@id' }, {
             'get': {
                 method: 'GET',
                 isArray: false

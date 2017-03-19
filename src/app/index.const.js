@@ -3,5 +3,5 @@
 
     angular
         .module('app')
-        .constant('API_ENDPOINT', 'http://localhost:5000/api/')
+        .constant('API_ENDPOINT', 'http://localhost:5000/api/v1/')
 })();

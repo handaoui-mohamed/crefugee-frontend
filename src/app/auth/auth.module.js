@@ -6,7 +6,7 @@
         .config(config);
 
     function config($stateProvider, $authProvider, $translatePartialLoaderProvider) {
-        $authProvider.loginUrl = 'http://localhost:5000/api/login';
+        $authProvider.loginUrl = 'http://localhost:5000/api/v1/login';
         $authProvider.tokenPrefix = '';
         $authProvider.authHeader = 'Authorization';
         $authProvider.authToken = '';

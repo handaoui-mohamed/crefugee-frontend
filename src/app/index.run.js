@@ -11,6 +11,8 @@
             UserService.get({ userId: user_id }, function(data) {
                 $rootScope.current_user = data.element;
             }, function(errors) {
+                $window.localStorage.removeItem('current_user');
+                $auth.logout();
                 ErrorToast(errors);
             });
         }
@@ -32,10 +34,6 @@
                     $state.go('auth');
                 }
             }
-        });
-
-        $rootScope.$on('$stateChangeSuccess', function() {
-            // document.getElementById("scroll-to-top").click();
         });
     }
 })();
