@@ -50,10 +50,12 @@
         }
 
         function getTagName(tagId) {
-            var selected_tag = vm.tags.find(function(tag) {
-                return tag.id === parseInt(tagId);
-            });
-            return selected_tag.name;
+            if (vm.tags) {
+                var selected_tag = vm.tags.find(function(tag) {
+                    return tag.id === parseInt(tagId);
+                });
+                return selected_tag.name;
+            }
         }
 
         function updateProfile() {

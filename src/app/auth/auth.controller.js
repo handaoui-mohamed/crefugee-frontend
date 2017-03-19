@@ -8,12 +8,14 @@
     function AuthController($log, $auth, $window, $state, $rootScope, RegisterService, toastr, ErrorToast, $translate) {
         var vm = this;
 
+        vm.user_to_login = {};
         vm.loginUser = loginUser;
         vm.registerUser = registerUser;
 
         function registerUser() {
             vm.disableRegister = true;
             toastr.clear([toastr]);
+            vm.user_to_register.is_helper = !vm.user_to_register.is_helper;
             RegisterService.save(vm.user_to_register, function() {
                 toastr.success($translate.instant("CONNECTING"), $translate.instant("REGISTERSUCCESS"));
                 vm.loginUser(true);
@@ -25,6 +27,11 @@
 
         function loginUser(registered) {
             vm.disableLogin = true;
+            if (registered) {
+                vm.user_to_login.username = vm.user_to_register.username;
+                vm.user_to_login.password = vm.user_to_register.password;
+                vm.remember_me = false;
+            }
             toastr.clear([toastr]);
             $auth.login(vm.user_to_login).then(function(response) {
                 if (!response.data.errors) {
@@ -33,7 +40,7 @@
                     $rootScope.current_user = response.data.user;
                     if (registered) $state.go('main.profile');
                     else {
-                        $state.go('userprofile', { username: $rootScope.current_user.username });
+                        $state.go('main.userprofile', { username: $rootScope.current_user.username });
                     }
                 } else {
                     toastr.error($translate.instant("USEREXIST"), $translate.instant("CONNECTIONERROR"));

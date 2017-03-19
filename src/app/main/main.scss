@@ -1,6 +1,10 @@
 .main-page {
+    .navbar-nav>li {
+        margin: 1em !important;
+    }
     margin: 0;
-    font-family: "Lato", sans-serif;
+    font-family: "Lato",
+    sans-serif;
     background: #fff;
     a {
         transition: 0.5s all;
@@ -419,7 +423,7 @@
         margin-bottom: 0;
     }
     .navbar-nav>li {
-        margin: 1.5em;
+        margin: 1em;
     }
     .navbar-default .navbar-nav>li>a {
         color: #fff;
@@ -1029,7 +1033,7 @@
             margin-left: 0;
         }
         .navbar-nav>li {
-            margin: 1.5em 0.5em;
+            margin: 1em 0.5em;
         }
         .navbar-default .navbar-nav>li>a {
             font-size: 1em;

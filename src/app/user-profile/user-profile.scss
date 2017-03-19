@@ -29,6 +29,7 @@
         position: relative;
     }
     .top-header {
+        margin-top: 50px !important;
         padding: 2em 0;
     }
     .logo h1 {
@@ -98,6 +99,7 @@
     }
     /*--banner-info--*/
     .banner-info {
+        width: 100% !important;
         background: rgba(23, 20, 20, 0.58);
         margin-top: 4em;
     }
@@ -106,6 +108,7 @@
     }
     .header-right {
         padding: 3em;
+        text-align: left;
     }
     ul.address-text {
         padding: 0;
@@ -1356,6 +1359,7 @@
             padding: 2em;
         }
         .banner-info {
+            width: 100% !important;
             background: rgba(47, 44, 44, 0.58);
             margin-top: 3em;
         }
@@ -1631,6 +1635,7 @@
             width: 100%;
         }
         .banner-info {
+            width: 100% !important;
             margin-top: 2em;
         }
         .wthree_about_right_grid:nth-child(2) {
@@ -1756,6 +1761,7 @@
             font-size: 1.2em;
         }
         .top-header {
+            margin-top: 50px !important;
             padding: 1.5em 0 0 0;
         }
         .navigation-right {
@@ -1918,6 +1924,7 @@
     }
     @media(max-width:375px) {
         .banner-info {
+            width: 100% !important;
             margin-top: 1.2em;
         }
         .about-left-grid {

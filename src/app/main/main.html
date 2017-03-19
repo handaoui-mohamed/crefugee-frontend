@@ -25,7 +25,7 @@
                 <li>
                     <a class="page-scroll" translate="phelp" ui-sref="main.search({type:'helper'})"></a>
                 </li>
-                <li ng-if="current_user"><a class="page-scroll" ui-sref="main.profile" data-hover="{{ current_user.full_name || current_user.user.username}}" style="text-transform: capitalize">{{ current_user.full_name || current_user.user.username}}</a></li>
+                <li ng-if="current_user"><a class="page-scroll" ui-sref="main.userprofile({username:current_user.username})" data-hover="{{ current_user.full_name || current_user.user.username}}">{{ current_user.full_name || current_user.user.username}}</a></li>
                 <li class="w3ls-navlog" ng-if="!current_user">
                     <a class="page-scroll" ui-sref="auth" data-toggle="modal" translate="login"></a>
                 </li>
@@ -34,13 +34,13 @@
                 </li>
 
                 <li>
-                    <a class="page-scroll language" href="" ng-click="vm.changeLanguage('en')">English</a>
+                    <a class="page-scroll language" href="" ng-click="vm.changeLanguage('en')">En</a>
                 </li>
                 <li>
-                    <a class="page-scroll language" href="" ng-click="vm.changeLanguage('fr')">Français</a>
+                    <a class="page-scroll language" href="" ng-click="vm.changeLanguage('fr')">Fr</a>
                 </li>
                 <li>
-                    <a class="page-scroll language" href="" ng-click="vm.changeLanguage('ar')" ;>العربية</a>
+                    <a class="page-scroll language" href="" ng-click="vm.changeLanguage('ar')" ;>عر</a>
                 </li>
             </ul>
         </div>

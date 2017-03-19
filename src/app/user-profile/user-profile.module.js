@@ -6,8 +6,8 @@
         .config(config);
 
     function config($stateProvider, $translatePartialLoaderProvider) {
-        $stateProvider.state('userprofile', {
-            url: '/profile/:username',
+        $stateProvider.state('main.userprofile', {
+            url: 'profile/:username',
             controller: 'UserProfileController as vm',
             templateUrl: 'app/user-profile/user-profile.html'
         });

@@ -25,7 +25,7 @@
                     <div class="col-md-6 news-text" style="height: 343px;">
                         <h3> <a href="">{{ post.title }}</a></h3>
                         <ul class="news">
-                            <li><i class="glyphicon glyphicon-user"></i> <a href="">{{ post.user.full_name ||  post.user.username}}</a></li>
+                            <li><i class="glyphicon glyphicon-user"></i> <a href="" ui-sref="main.userprofile({username:post.user.username})">{{ post.user.full_name ||  post.user.username}}</a></li>
                             <li><i class="glyphicon glyphicon-calendar"></i> <a href="">{{ vmSr.getLocalPostTime(post.posted_at) }}</a></li>
                             <li ng-repeat="tag in post.tags"><i class="glyphicon glyphicon-tags"></i> <a href="">{{ tag.name }}</a></li>
                         </ul>
@@ -37,7 +37,7 @@
                     <div class="col-md-6 news-text two" style="height: 343px;">
                         <h3> <a href="">{{ post.title }}</a></h3>
                         <ul class="news">
-                            <li><i class="glyphicon glyphicon-user"></i> <a href="#">{{ post.user.full_name ||  post.user.username}}</a></li>
+                            <li><i class="glyphicon glyphicon-user"></i> <a href="" ui-sref="main.userprofile({username:post.user.username})">{{ post.user.full_name ||  post.user.username}}</a></li>
                             <li><i class="glyphicon glyphicon-calendar"></i> <a href="#">{{ vmSr.getLocalPostTime(post.posted_at) }}</a></li>
                             <li ng-repeat="tag in post.tags"><i class="glyphicon glyphicon-tags"></i> <a href="#">{{ tag.name }}</a></li>
                         </ul>
