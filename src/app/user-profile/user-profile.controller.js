@@ -14,7 +14,7 @@
         UserService.get({ username: $stateParams.username }, function(data) {
             vm.user = data.element;
         }, function(errors) {
-            $state.go('home');
+            $state.go('main.home');
             ErrorToast(errors);
         });
 

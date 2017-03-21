@@ -59,7 +59,7 @@
         function uploadPostPicture(file, postId) {
             vm.file = file;
             Upload.upload({
-                url: API_ENDPOINT + 'upload/' + postId,
+                url: API_ENDPOINT + 'posts/uploads/' + postId,
                 data: { post_image: file }
             }).then(function(resp) {
                 toastr.info($translate.instant('UPLOADED'));
