@@ -17,8 +17,8 @@
                         <a ui-sref="main.profile" ng-if="vm.user.id === current_user.id"><i class="glyphicon glyphicon-cog"></i>
 						<span translate="EDIT"></span></a>
                         <br>
-                        <h1 ng-if="vm.user.is_helper" translate="HELPER"></h1>
-                        <h1 ng-if="!vm.user.is_helper"><span translate="REFUGEE"></span> <i ng-if="vm.user.validated" class="glyphicon glyphicon-ok"></i></h1>
+                        <h1 ng-if="!vm.user.is_refugee" translate="HELPER"></h1>
+                        <h1 ng-if="vm.user.is_refugee"><span translate="REFUGEE"></span> <i ng-if="vm.user.validated" class="glyphicon glyphicon-ok"></i></h1>
                         <h6>{{ vm.user.username }}</h6>
                         <ul class="address">
 
@@ -49,7 +49,7 @@
                             <li>
                                 <ul class="address-text">
                                     <li><b translate="DESCRIPTION"></b></li>
-                                    <li>{{ vm.user.decription }}</li>
+                                    <li>{{ vm.user.description }}</li>
                                 </ul>
                             </li>
                         </ul>

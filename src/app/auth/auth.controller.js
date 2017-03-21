@@ -15,7 +15,6 @@
         function registerUser() {
             vm.disableRegister = true;
             toastr.clear([toastr]);
-            vm.user_to_register.is_helper = !vm.user_to_register.is_helper;
             RegisterService.save(vm.user_to_register, function() {
                 toastr.success($translate.instant("CONNECTING"), $translate.instant("REGISTERSUCCESS"));
                 vm.loginUser(true);

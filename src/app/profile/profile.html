@@ -35,6 +35,11 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label for="description" translate="DESCRIPTION"></label>
+            <input type="text" class="form-control" id="description" name="description" placeholder="{{'DESCRIPTION' | translate}}" ng-model="vmPr.user.description">
+        </div>
+
         <div class="form-group col-md-11"> <label for="addTag" translate="ADDTAGS"></label>
             <select class="form-control" id="addTag" ng-model="vmPr.selectedTag">
             <option ng-repeat="tag in vmPr.tags" value="{{ tag.id }}">{{ tag.name }}</option>
@@ -82,7 +87,7 @@
         </button>
         <br>
         <br>
-        <button ng-if="!vm.user.is_helper" type="button" class="btn btn-warning" ngf-select="vmPr.uploadLegalDocument($file)">
+        <button ng-if="vm.user.is_refugee" type="button" class="btn btn-warning" ngf-select="vmPr.uploadLegalDocument($file)">
             <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> <span translate="LEGALDOCUMENT"></span>
         </button>
         <div ng-if="vmPr.progressPercentage && vmPr.progressPercentage !== 0 && vmPr.progressPercentage !== 100">
