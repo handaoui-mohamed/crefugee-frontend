@@ -22,8 +22,8 @@
                 </li>
                 <li>
                     <a translate="phelp" ui-sref="main.search({type:'helper'})"></a>
-                </li>
-                <li ng-if="current_user"><a ui-sref="main.userprofile({username:current_user.username})" data-hover="{{ current_user.full_name || current_user.user.username}}">{{ current_user.full_name || current_user.user.username}}</a></li>
+                </li> 
+                <li ng-if="current_user"><a ui-sref="main.userprofile({username:current_user.username})" data-hover="{{ current_user.full_name || current_user.username}}">{{ current_user.full_name || current_user.username}}</a></li>
                 <li class="w3ls-navlog" ng-if="!current_user">
                     <a ui-sref="auth" data-toggle="modal" translate="login"></a>
                 </li>
@@ -88,6 +88,7 @@
         }
     });
 </script>
+
 
 <div id="user-chat" ng-if="current_user" ng-init="vm.hideChat = true">
 
