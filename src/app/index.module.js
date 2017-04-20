@@ -10,6 +10,7 @@
             'ngAria',
             'pascalprecht.translate',
             'toastr',
+            'ngRateIt',
 
             /* app module*/
             'app.main',

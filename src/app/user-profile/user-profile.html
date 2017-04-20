@@ -1,114 +1,144 @@
 <style>
 
+
 </style>
 <div id="user-profile">
-    <div id="home" class="header">
-        <div class="container">
-            <!-- top-hedader -->
-            <div class="top-header">
-                <!-- /logo -->
-                <!--top-nav---->
-                <div class="top-nav">
+  <div id="home" class="header">
+    <div class="container">
+      <!-- top-hedader -->
+      <div class="top-header">
+        <!-- /logo -->
+        <!--top-nav---->
+        <div class="top-nav">
 
-                    <!-- /top-hedader -->
-                </div>
-                <div class="banner-info">
-                    <div class="col-md-7 header-right">
-                        <a ui-sref="main.profile" ng-if="vm.user.id === current_user.id"><i class="glyphicon glyphicon-cog"></i>
+          <!-- /top-hedader -->
+        </div>
+        <div class="banner-info">
+          <div class="col-md-7 header-right">
+            <a ui-sref="main.profile" ng-if="vm.user.id === current_user.id"><i class="glyphicon glyphicon-cog"></i>
 						<span translate="EDIT"></span></a>
-                        <br>
-                        <h1 ng-if="!vm.user.is_refugee" translate="HELPER"></h1>
-                        <h1 ng-if="vm.user.is_refugee"><span translate="REFUGEE"></span> <i ng-if="vm.user.validated" class="glyphicon glyphicon-ok"></i></h1>
-                        <h6>{{ vm.user.username }}</h6>
-                        <ul class="address">
+            <br>
+            <h1 ng-if="!vm.user.is_refugee" translate="HELPER"></h1>
+            <h1 ng-if="vm.user.is_refugee"><span translate="REFUGEE"></span> <i ng-if="vm.user.validated" class="glyphicon glyphicon-ok"></i></h1>
+            <h6>{{ vm.user.username }}</h6>
+            <ul class="address">
 
-                            <li>
-                                <ul class="address-text">
-                                    <li><b translate="NAME"></b></li>
-                                    <li>{{ vm.user.full_name }}</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul class="address-text">
-                                    <li><b translate="ADDRESS"></b></li>
-                                    <li>{{ vm.user.address }}</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul class="address-text">
-                                    <li><b translate="PHONE"></b></li>
-                                    <li>{{ vm.user.phone_number }}</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul class="address-text">
-                                    <li><b translate="EMAIL"></b></li>
-                                    <li><a href="{{ vm.user.email }}">{{ vm.user.email }}</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul class="address-text">
-                                    <li><b translate="DESCRIPTION"></b></li>
-                                    <li>{{ vm.user.description }}</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-5 header-left">
-                        <img style="width: auto;height: 350px; max-width: 400px" fallback-src="assets/images/avatar.png" ngf-thumbnail="vm.user.profile_image.path || vm.default_profile_image">
-                    </div>
-                    <div class="clearfix"> </div>
+              <li>
+                <ul class="address-text">
+                  <li><b translate="NAME"></b></li>
+                  <li>{{ vm.user.full_name }}</li>
+                </ul>
+              </li>
+              <li>
+                <ul class="address-text">
+                  <li><b translate="ADDRESS"></b></li>
+                  <li>{{ vm.user.address }}</li>
+                </ul>
+              </li>
+              <li>
+                <ul class="address-text">
+                  <li><b translate="PHONE"></b></li>
+                  <li>{{ vm.user.phone_number }}</li>
+                </ul>
+              </li>
+              <li>
+                <ul class="address-text">
+                  <li><b translate="EMAIL"></b></li>
+                  <li><a href="{{ vm.user.email }}">{{ vm.user.email }}</a></li>
+                </ul>
+              </li>
+              <li>
+                <ul class="address-text">
+                  <li><b translate="DESCRIPTION"></b></li>
+                  <li>{{ vm.user.description }}</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-5 header-left">
+            <img style="width: auto;height: 350px; max-width: 400px" fallback-src="assets/images/avatar.png" ngf-thumbnail="vm.user.profile_image.path || vm.default_profile_image">
+          </div>
+          <div class="clearfix"> </div>
 
-                </div>
-            </div>
         </div>
+      </div>
     </div>
+  </div>
 
 
 
 
-    <!-- top-grids -->
-    <div class="blog" id="blogs">
-        <div class="container">
-            <div class="service-head text-center">
-                <h4 translate="POSTS"></h4>
-                <h3 translate="MYPOSTS"></h3>
-                <span class="border one"></span>
-            </div>
-            <div class="news-grid w3l-agile" ng-repeat="post in vm.user.posts track by $index">
-                <div ng-if="$index % 2 === 0">
-                    <div class="col-md-6 news-img">
-                        <a href="#" data-toggle="modal" data-target="#myModal1">
-                            <img style="width: 100%;height: 343px;" fallback-src="assets/images/default_thumbnail.jpg" ngf-thumbnail="post.image.path || vm.default_post_image">
-                    </div>
-                    <div class="col-md-6 news-text" style="height: 343px;">
-                        <h3> <a href="#" data-toggle="modal" data-target="#myModal1">{{ post.title }}</a></h3>
-                        <ul class="news">
-                            <li><i class="glyphicon glyphicon-calendar"></i> <a href="#">{{ vm.getLocalPostTime(post.posted_at) }}</a></li>
-                            <li ng-repeat="tag in post.tags"><i class="glyphicon glyphicon-tags"></i> <a href="#">{{ tag.name }}</a></li>
-                        </ul>
-                        <p>{{ post.content }}</p>
-                        <a href="#" data-toggle="modal" data-target="#myModal1" class="read hvr-shutter-in-horizontal" translate="READMORE"></a>
+  <!-- top-grids -->
+  <div class="blog" id="blogs" ng-if="vm.user.posts.length > 0">
+    <div class="container">
+      <div class="service-head text-center">
+        <h4 translate="POSTS"></h4>
+        <h3 translate="MYPOSTS"></h3>
+        <span class="border one"></span>
+      </div>
+      <div class="news-grid w3l-agile" ng-repeat="post in vm.user.posts | orderBy:'posted_at':true | limitTo: vm.limit track by $index ">
+        <div ng-if="$index % 2 === 0">
+          <div class="col-md-6 news-img">
+            <a href="">
+              <img style="width: 100%;height: 343px;" fallback-src="assets/images/default_thumbnail.jpg" ngf-thumbnail="post.image.path || vm.default_post_image">
+          </div>
+          <div class="col-md-6 news-text" style="height: 343px;">
+            <h3> <a href="" ng-click="vm.openModal(post, '#post-details')" >{{ post.title }}</a></h3>
+            <ul class="news">
+              <li><i class="glyphicon glyphicon-calendar"></i> <a href="#">{{ vm.getLocalPostTime(post.posted_at) }}</a></li>
+              <li ng-repeat="tag in post.tags"><i class="glyphicon glyphicon-tags"></i> <a href="#">{{ tag.name }}</a></li>
+            </ul>
+            <ng-rate-it ng-model="post.rating" min="0" max="5" read-only="true"></ng-rate-it>
+            <p>{{ post.content | limitTo: 600 }}</p>
+            <a href="" ng-click="vm.openModal(post, '#post-details')" class="read hvr-shutter-in-horizontal" translate="READMORE"></a>
 
-                    </div>
-                </div>
-                <div ng-if="$index % 2 === 1">
-                    <div class="col-md-6 news-text two" style="height: 343px;">
-                        <h3> <a href="#" data-toggle="modal" data-target="#myModal1">{{ post.title }}</a></h3>
-                        <ul class="news">
-                            <li><i class="glyphicon glyphicon-calendar"></i> <a href="#">{{ vm.getLocalPostTime(post.posted_at) }}</a></li>
-                            <li ng-repeat="tag in post.tags"><i class="glyphicon glyphicon-tags"></i> <a href="#">{{ tag.name }}</a></li>
-                        </ul>
-                        <p>{{ post.content }}</p>
-                        <a href="#" data-toggle="modal" data-target="#myModal1" class="read hvr-shutter-in-horizontal" translate="READMORE"></a>
-
-                    </div>
-                    <div class="col-md-6 news-img two">
-                        <a href="#" data-toggle="modal" data-target="#myModal1"> <img style="width: 100%;height: 343px;" fallback-src="assets/images/default_thumbnail.jpg" ngf-thumbnail="post.image.path || vm.default_post_image">
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+          </div>
         </div>
+        <div ng-if="$index % 2 === 1">
+          <div class="col-md-6 news-text two" style="height: 343px;">
+            <h3> <a href="" ng-click="vm.openModal(post, '#post-details')" >{{ post.title }}</a></h3>
+            <ul class="news">
+              <li><i class="glyphicon glyphicon-calendar"></i> <a href="#">{{ vm.getLocalPostTime(post.posted_at) }}</a></li>
+              <li ng-repeat="tag in post.tags"><i class="glyphicon glyphicon-tags"></i> <a href="#">{{ tag.name }}</a></li>
+            </ul>
+            <ng-rate-it ng-model="post.rating" min="0" max="5" read-only="true"></ng-rate-it>
+            <p>{{ post.content | limitTo: 600 }}</p>
+            <a href="" ng-click="vm.openModal(post, '#post-details')"  class="read hvr-shutter-in-horizontal" translate="READMORE"></a>
+
+          </div>
+          <div class="col-md-6 news-img two">
+            <a href=""> <img style="width: 100%;height: 343px;" fallback-src="assets/images/default_thumbnail.jpg" ngf-thumbnail="post.image.path || vm.default_post_image">
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
     </div>
+    <div style="display: block; text-align:center">
+      <button class="btn btn-primary" ng-click="vm.limit = vm.limit + 3" style="width: 50%">Show more</button>
+    </div>
+  </div>
+
+  <div class="modal ab fade" id="post-details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog about" role="document">
+      <div class="modal-content about">
+        <div class="modal-header">
+          <button type="button" class="close ab" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body about">
+          <div class="about">
+
+            <div class="about-inner">
+
+              <img style="width: 100%;height: 343px;" fallback-src="assets/images/default_thumbnail.jpg" ngf-thumbnail="vm.selectedPost.image.path || vm.default_post_image">
+              <h4 class="tittle">{{ vm.selectedPost.title }}</h4>
+              <span ng-if="current_user">Your Rating</span>
+              <ng-rate-it resetable="false" ng-model="vm.selectedRating" min="0" max="5" read-only="!current_user" ng-click="vm.saveRating(vm.selectedPost, current_user)"></ng-rate-it>
+              <p>{{ vm.selectedPost.content }}</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

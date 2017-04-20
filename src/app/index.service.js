@@ -41,9 +41,9 @@
         return function(errors) {
             switch (errors.status) {
                 case 400:
-                    for (var fieldName in errors.data['form_errors']) {
-                        if (errors.data['form_errors'].hasOwnProperty(fieldName)) {
-                            toastr.warning(errors.data['form_errors'][fieldName][0]);
+                    for (var fieldName in errors.data['message']) {
+                        if (errors.data['message'].hasOwnProperty(fieldName)) {
+                            toastr.warning(errors.data['message'][fieldName][0]);
                             break;
                         }
                     }

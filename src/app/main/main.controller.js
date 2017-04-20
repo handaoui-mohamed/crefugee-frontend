@@ -41,10 +41,10 @@
         }
 
         function getMessages(user) {
-            vm.messages = []
+            vm.messages = [];
+            vm.show = true;
             MessageService.get({ receiverId: user.id }, function(data) {
                 vm.messages = vm.messages.concat(data.elements);
-                vm.show = true;
                 vm.selectedUser = user;
             }, function(error) {
                 ErrorToast(error);

@@ -7,7 +7,7 @@
         <div display="block">
             <div class="container">
                 <img class="navbar-header page-scroll" src="../../assets/images/had2.png" width="89px">
-                <h1><a class="navbar-brand" ui-sref="main"> Connected<span>Refugees</span></a></h1>
+                <h1><a class="navbar-brand" ui-sref="main.home"> Connected<span>Refugees</span></a></h1>
             </div>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -96,14 +96,16 @@
     <div class="chat-widget agileits w3layouts">
         <div id="topmenumsg" ng-click="vm.hideChat = false" ng-if="vm.hideChat">
             <span class="friends agileits w3layouts" style="position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 250px;
-    height: 34px;
-    background-color: #333;
-    text-align: center;
-    font-family: serif;
-    content: 'Message';"> Afficher Messages</span>
+                    bottom: 0;
+                    right: 0;
+                    width: 250px;
+                    height: 34px;
+                    background-color: #333;
+                    text-align: center;
+                    padding-top: 5px;
+                    font-size: 19px;
+                    font-weight: 500;"
+                    > <i class="fa fa-message" aria-hidden="true"></i>Messages</span>
         </div>
         <div id="chatbox" ng-if="!vm.hideChat">
 

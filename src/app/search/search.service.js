@@ -5,7 +5,8 @@
         .module('main.search')
         .factory('HelperPostService', HelperPostService)
         .factory('RefugeePostService', RefugeePostService)
-        .factory('PostService', PostService);
+        .factory('PostService', PostService)
+        .factory('RatingService', RatingService);
 
     function HelperPostService($resource, API_ENDPOINT) {
         return $resource(API_ENDPOINT + "posts/helper/:page", { page: "@id" }, {
@@ -34,4 +35,12 @@
         })
     }
 
+    function RatingService($resource, API_ENDPOINT){
+        return $resource(API_ENDPOINT + "ratings", null,{
+            'get': {
+                method: 'GET',
+                isArray: false
+            }
+        })
+    }
 })();

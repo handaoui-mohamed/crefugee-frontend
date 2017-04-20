@@ -5,11 +5,15 @@
         .module('main.search')
         .controller('SearchController', SearchController);
 
-    function SearchController($translate, $stateParams, Upload, API_ENDPOINT, toastr, TagService, HelperPostService, RefugeePostService, PostService, ErrorToast) {
+    function SearchController($translate, $stateParams, Upload, API_ENDPOINT, toastr, RatingService ,TagService, HelperPostService, RefugeePostService, PostService, ErrorToast) {
         var vm = this;
         vm.postService = null;
+        vm.posts = [];
         vm.page = 1;
+        vm.limit = 5;
         vm.selectedTags = [];
+        vm.selectedTag = "";
+        vm.selectedRating = 0;
 
 
 
@@ -46,13 +50,30 @@
         vm.removeTag = removeTag;
         vm.uploadPostPicture = uploadPostPicture;
         vm.addPost = addPost;
+        vm.saveRating = saveRating;
+
+        function saveRating(post, loggedIn){
+            if (post && loggedIn){
+                RatingService.save({"value": vm.selectedRating, "post_id": post.id}, function(data){
+                     post.rating = data.element.rating;
+                }, function(error){
+                    ErrorToast(error);
+                });
+            }
+        }
 
         function addPost() {
             vm.newPost.tags = vm.selectedTags;
             PostService.save(vm.newPost, function(data) {
-                vm.uploadPostPicture(vm.postfile, data.element.id);
+                if(vm.postfile){
+                    vm.uploadPostPicture(vm.postfile, data.element.id);   
+                }else{
+                    $("#addPost").modal('hide');
+                    vm.posts.unshift(data.element);
+                }
+                toastr.success("Le post a été ajouter avec succee")
             }, function(error) {
-
+                ErrorToast(error);
             });
         }
 
@@ -63,6 +84,8 @@
                 data: { post_image: file }
             }).then(function(resp) {
                 toastr.info($translate.instant('UPLOADED'));
+                $("#addPost").modal('hide');
+                vm.posts.unshift(resp.element);
             }, function(resp) {
                 ErrorToast(resp);
             }, function(evt) {
@@ -82,7 +105,6 @@
 
         function removeTag(index) {
             vm.selectedTags.splice(index, 1);
-            console.log(vm.selectedTags)
         }
 
         function getTagName(tagId) {
@@ -93,10 +115,20 @@
         }
 
 
-        function openModal(post, model) {
+        function openModal(post, model, loggedIn) {
             $(model).modal('show');
             if (post) {
                 vm.selectedPost = post;
+                if (loggedIn){
+                    RatingService.get({"post_id":post.id}, function(data){
+                        vm.selectedRating = data.element.value; 
+                    }, function(error){
+                        vm.selectedRating = 0;
+                        ErrorToast(error);
+                    });
+                }else{
+                    vm.selectedRating = post.rating;
+                }
             }
         }
 
