@@ -5,7 +5,7 @@
         .module('main.search')
         .controller('SearchController', SearchController);
 
-    function SearchController($translate, $stateParams, Upload, API_ENDPOINT, toastr, RatingService ,TagService, HelperPostService, RefugeePostService, PostService, ErrorToast) {
+    function SearchController($translate, $stateParams, Upload, API_ENDPOINT, toastr, PostRatingService ,TagService, HelperPostService, RefugeePostService, PostService, ErrorToast) {
         var vm = this;
         vm.postService = null;
         vm.posts = [];
@@ -54,7 +54,7 @@
 
         function saveRating(post, loggedIn){
             if (post && loggedIn){
-                RatingService.save({"value": vm.selectedRating, "post_id": post.id}, function(data){
+                PostRatingService.save({"value": vm.selectedRating, "post_id": post.id}, function(data){
                      post.rating = data.element.rating;
                 }, function(error){
                     ErrorToast(error);

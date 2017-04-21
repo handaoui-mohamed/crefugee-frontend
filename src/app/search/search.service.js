@@ -6,7 +6,8 @@
         .factory('HelperPostService', HelperPostService)
         .factory('RefugeePostService', RefugeePostService)
         .factory('PostService', PostService)
-        .factory('RatingService', RatingService);
+        .factory('PostRatingService', PostRatingService)
+        .factory('UserRatingService', UserRatingService);
 
     function HelperPostService($resource, API_ENDPOINT) {
         return $resource(API_ENDPOINT + "posts/helper/:page", { page: "@id" }, {
@@ -35,8 +36,17 @@
         })
     }
 
-    function RatingService($resource, API_ENDPOINT){
-        return $resource(API_ENDPOINT + "ratings", null,{
+    function PostRatingService($resource, API_ENDPOINT){
+        return $resource(API_ENDPOINT + "ratings/post", null,{
+            'get': {
+                method: 'GET',
+                isArray: false
+            }
+        })
+    }
+
+    function UserRatingService($resource, API_ENDPOINT){
+        return $resource(API_ENDPOINT + "ratings/user", null,{
             'get': {
                 method: 'GET',
                 isArray: false

@@ -5,7 +5,7 @@
         .module('app.userprofile')
         .controller('UserProfileController', UserProfileController);
 
-    function UserProfileController($log, UserService, $stateParams, $state, ErrorToast, RatingService) {
+    function UserProfileController($log, UserService, $stateParams, $state, ErrorToast, PostRatingService, UserRatingService) {
         var vm = this;
         vm.limit = 3;
         vm.default_profile_image = "assets/images/avatar.png";
@@ -22,6 +22,7 @@
         vm.getLocalPostTime = getLocalPostTime;
         vm.openModal = openModal;
         vm.saveRating = saveRating;
+        vm.rateUser = rateUser;
 
         function getLocalPostTime(utcDate) {
             var date = new Date(utcDate);
@@ -33,7 +34,7 @@
             if (post) {
                 vm.selectedPost = post;
                 if (loggedIn){
-                    RatingService.get({"post_id":post.id}, function(data){
+                    PostRatingService.get({"post_id":post.id}, function(data){
                         vm.selectedRating = data.element.value; 
                     }, function(error){
                         vm.selectedRating = 0;
@@ -49,6 +50,16 @@
             if (post && loggedIn){
                 RatingService.save({"value": vm.selectedRating, "post_id": post.id}, function(data){
                      post.rating = data.element.rating;
+                }, function(error){
+                    ErrorToast(error);
+                });
+            }
+        }
+
+        function rateUser(loggedIn){
+            if (loggedIn && vm.user.rating){
+                UserRatingService.save({"value": vm.user.rating, "rated_user_id":vm.user.id}, function(data){
+                    vm.user.rating = data.element.rating;
                 }, function(error){
                     ErrorToast(error);
                 });

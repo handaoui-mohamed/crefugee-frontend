@@ -76,7 +76,7 @@
             vm.file = file;
             Upload.upload({
                 url: API_ENDPOINT + 'profile/uploads',
-                data: { profile_image: file }
+                data: { "profile_image": file }
             }).then(function(resp) {
                 toastr.info($translate.instant('UPLOADED'));
             }, function(resp) {

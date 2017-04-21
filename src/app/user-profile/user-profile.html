@@ -20,7 +20,8 @@
             <br>
             <h1 ng-if="!vm.user.is_refugee" translate="HELPER"></h1>
             <h1 ng-if="vm.user.is_refugee"><span translate="REFUGEE"></span> <i ng-if="vm.user.validated" class="glyphicon glyphicon-ok"></i></h1>
-            <h6>{{ vm.user.username }}</h6>
+            <h6>{{ vm.user.username }} <ng-rate-it resetable="false" ng-model="vm.user.rating" min="0" max="5" read-only="!current_user" ng-click="vm.rateUser(current_user)"></ng-rate-it>
+              </h6>
             <ul class="address">
 
               <li>
