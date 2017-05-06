@@ -1,3 +1,11 @@
 {
-    "HOME": "home"
+    "HOME": "home",
+    "hadra": "",
+    "adr": "Oued Smar, Algeria",
+    "login": "Login",
+    "logout": "Logout",
+    "home": "Home",
+    "fhelp": "Find Help",
+    "phelp": "Provide Help",
+    "shexp": "Share experience"
 }

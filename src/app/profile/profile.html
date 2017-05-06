@@ -1,0 +1,100 @@
+<style>
+    .main-page nav.navbar.navbar-default.navbar-fixed-top {
+        background-color: rgba(0, 0, 0, 0.75) !important;
+    }
+</style>
+<div class="form-body" id="edit-profile" class="row">
+    <form novalidate name="updateForm" class="col-md-6 col-md-offset-3 row">
+        <div class="form-group">
+            <label for="full_name" translate="FULLNAME"></label>
+            <input type="text" required class="form-control" id="full_name" name="full_name" ng-model="vmPr.user.full_name" placeholder="{{'FULLNAME'| translate}}">
+            <div ng-messages="updateForm.full_name.$error" ng-if="updateForm.full_name.$touched">
+                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Email" translate="EMAIL"></label>
+            <input id="Email" required type="email" class="form-control" name="email" placeholder="{{'EMAIL' | translate}}" ng-pattern="/^.+@.+\..+$/" ng-model="vmPr.user.email" />
+            <div ng-messages="updateForm.email.$error" class="ng-alert" ng-if="updateForm.email.$touched">
+                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+                <p class="alert" role="alert" ng-message="pattern" translate="FIELD.EMAILERROR"></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phone_number" translate="PHONE"></label>
+            <input type="text" class="form-control" required id="phone_number" name="phone_number" placeholder="{{'PHONE' | translate}}" ng-model="vmPr.user.phone_number">
+            <div ng-messages="updateForm.phone_number.$error" class="ng-alert" ng-if="updateForm.phone_number.$touched">
+                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address" translate="ADDRESS"></label>
+            <input type="text" class="form-control" id="address" required name="address" placeholder="{{'ADDRESS' | translate}}" ng-model="vmPr.user.address">
+            <div ng-messages="updateForm.address.$error" class="ng-alert" ng-if="updateForm.address.$touched">
+                <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+            </div>
+        </div>
+
+        <div class="form-group col-md-11"> <label for="addTag" translate="ADDTAGS"></label>
+            <select class="form-control" id="addTag" ng-model="vmPr.selectedTag">
+            <option ng-repeat="tag in vmPr.tags" value="{{ tag.id }}">{{ tag.name }}</option>
+	    </select>
+        </div>
+        <br>
+        <div class="form-group ">
+            <button id="addTagBtn" class="btn btn-default" style="border-radius:30%;" ng-click="vmPr.addTag()"><span class="fa fa-plus"></span>
+		</button>
+        </div>
+        <div id="tags" ng-if="vmPr.selectedTags.length !== 0">
+            <br>
+            <ul>
+                <li class="chip" ng-repeat="tag_id in vmPr.selectedTags track by $index">{{ vmPr.getTagName(tag_id) }}
+                    <span ng-click="vmPr.removeTag($index)" class="closebtn">&times;</span></li>
+            </ul>
+        </div>
+        <br>
+        <div class="form-group">
+            <div><button id="changePassword" class="btn btn-warning" translate="CHANGEPASSWORD" ng-click="vmPr.update_password = !vmPr.update_password "></button></div>
+            <div ng-if="vmPr.update_password">
+                <p>
+                    <label for="password" translate="PASSWORD"></label>
+                    <input id="password" class="form-control" required name="password" ng-minlength="8" type="password" ng-model="vmPr.user.password" placeholder="{{'PASSWORD' | translate}}" />
+                    <div class="ng-alert" ng-messages="updateForm.password.$error" ng-if="updateForm.password.$touched">
+                        <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+                        <p class="alert" role="alert" ng-message="minlength" translate="FIELD.PASSWORDLENGTH"></p>
+                    </div>
+                </p>
+                <p>
+                    <label for="confirm_password" translate="CONFIRMPASSWORD"></label>
+                    <input id="confirm_password" class="form-control" required name="confirm_password" ng-minlength="8" type="password" ng-model="vmPr.confirm_password" placeholder="{{'CONFIRMPASSWORD' | translate}}" />
+                    <div class="ng-alert" ng-messages="updateForm.confirm_password.$error" ng-if="updateForm.confirm_password.$touched">
+                        <p class="alert" role="alert" ng-message="required" translate="FIELD.REQUIRED"></p>
+                        <p class="alert" role="alert" ng-message="minlength" translate="FIELD.PASSWORDLENGTH"></p>
+                    </div>
+                    <div ng-if="vmPr.confirm_password && vmPr.confirm_password !== vmPr.user.password">
+                        <p class="alert" role="alert" translate="FIELD.PASSWORDMATCH"></p>
+                    </div>
+                </p>
+            </div>
+        </div>
+        <button type="button" class="btn btn-warning" ngf-select="vmPr.uploadProfilePicture($file)">
+            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> <span translate="PROFILEPICTURE"></span>
+        </button>
+        <br>
+        <br>
+        <button ng-if="!vm.user.is_helper" type="button" class="btn btn-warning" ngf-select="vmPr.uploadLegalDocument($file)">
+            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span> <span translate="LEGALDOCUMENT"></span>
+        </button>
+        <div ng-if="vmPr.progressPercentage && vmPr.progressPercentage !== 0 && vmPr.progressPercentage !== 100">
+            <br>
+            <div class="progress">
+                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="{{ vm.progressPercentage }}" aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( vm.progressPercentage + '%' ) }">
+                    <span class="sr-only">{{ vmPr.progressPercentage }}% {{ 'PROFILE.LOAD' | translate }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-md-offset-5">
+            <input class="btn btn-primary" type="submit" value="{{'UPDATE' | translate }}" ng-disabled="vmPr.disabled" ng-click="vmPr.updateProfile()">
+        </div>
+    </form>
+</div>

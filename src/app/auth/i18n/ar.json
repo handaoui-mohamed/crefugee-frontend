@@ -1,15 +1,13 @@
 {
     "EMAIL": "البريد الإلكتروني",
-    "LOGIN": "تسجيل الدخول",
-    "USERNAME":"اسم المستخدم",
+    "SIGNIN": "تسجيل الدخول",
+    "USERNAME": "اسم المستخدم",
     "PASSWORD": "كلمة السر",
     "REMEMBERME": "ابق على اتصال؟",
-    "NOACCOUNT": "ليس عضوا؟",
-    "WITHACCOUNT": "عضو بالفعل؟",
     "CREATEACCOUNT": "إفتح حساب",
-    "REGISTER": "تسجيل",
+    "SIGNUP": "تسجيل",
     "CONFIRMPASSWORD": "تأكيد كلمة السر",
-    "FIELD":{
+    "FIELD": {
         "REQUIRED": "* هذا الحقل مطلوب",
         "PASSWORDLENGTH": "يجب أن تكون كلمة السر أكثر من 8",
         "PASSWORDMATCH": "كلمات السر لا تتطابق",
@@ -20,5 +18,6 @@
     "REDIRECTING": "... التوجيه الى ملفك الشخصي",
     "HELLO": "مرحبا",
     "USEREXIST": "اسم المستخدم أو كلمة المرور غير صحيحة",
-    "CONNECTIONERROR": "خطأ في التسجل"
+    "CONNECTIONERROR": "خطأ في التسجل",
+    "REFUGEE": "لاجئ"
 }

@@ -1,0 +1,155 @@
+<style>
+    .main-page nav.navbar.navbar-default.navbar-fixed-top {
+        background-color: rgba(0, 0, 0, 0.75) !important;
+    }
+</style>
+<div id="search-page">
+    <div class="blog" id="blogs">
+        <div class="container">
+
+            <div class="service-head text-center">
+                <h4 translate="help"></h4>
+                <h3><span translate="publication"></span></h3>
+                <span class="border"></span>
+            </div>
+            <ul class="resp-tabs-list">
+                <li ng-if="current_user" ng-click="vmSr.openModal(null, '#addPost')" class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span translate="addPost"></span></li>
+                <li ng-repeat="tag in vmSr.tags" class="resp-tab-item" aria-controls="tab_item-{{ tag.id }}" role="tab"><span>{{ tag.name }}</span></li>
+            </ul>
+            <div class="news-grid w3l-agile" ng-repeat="post in vmSr.posts track by $index">
+                <div ng-if="$index % 2 === 0">
+                    <div class="col-md-6 news-img">
+                        <a href="">
+                            <img style="width: 100%;height: 343px;" fallback-src="assets/images/default_thumbnail.jpg" ngf-thumbnail="post.image.path || vmSr.default_post_image">
+                    </div>
+                    <div class="col-md-6 news-text" style="height: 343px;">
+                        <h3> <a href="">{{ post.title }}</a></h3>
+                        <ul class="news">
+                            <li><i class="glyphicon glyphicon-user"></i> <a href="" ui-sref="main.userprofile({username:post.user.username})">{{ post.user.full_name ||  post.user.username}}</a></li>
+                            <li><i class="glyphicon glyphicon-calendar"></i> <a href="">{{ vmSr.getLocalPostTime(post.posted_at) }}</a></li>
+                            <li ng-repeat="tag in post.tags"><i class="glyphicon glyphicon-tags"></i> <a href="">{{ tag.name }}</a></li>
+                        </ul>
+                        <p>{{ post.content }}</p>
+                        <a href="" ng-click="vmSr.openModal(post, '#myModal1')" class="read hvr-shutter-in-horizontal" translate="READMORE"></a>
+                    </div>
+                </div>
+                <div ng-if="$index % 2 === 1">
+                    <div class="col-md-6 news-text two" style="height: 343px;">
+                        <h3> <a href="">{{ post.title }}</a></h3>
+                        <ul class="news">
+                            <li><i class="glyphicon glyphicon-user"></i> <a href="" ui-sref="main.userprofile({username:post.user.username})">{{ post.user.full_name ||  post.user.username}}</a></li>
+                            <li><i class="glyphicon glyphicon-calendar"></i> <a href="#">{{ vmSr.getLocalPostTime(post.posted_at) }}</a></li>
+                            <li ng-repeat="tag in post.tags"><i class="glyphicon glyphicon-tags"></i> <a href="#">{{ tag.name }}</a></li>
+                        </ul>
+                        <p>{{ post.content }}</p>
+                        <a href="" ng-click="vmSr.openModal(post, '#myModal1')" class="read hvr-shutter-in-horizontal" translate="READMORE"></a>
+
+                    </div>
+                    <div class="col-md-6 news-img two">
+                        <a href=""> <img style="width: 100%;height: 343px;" fallback-src="assets/images/default_thumbnail.jpg" ngf-thumbnail="post.image.path || vmSr.default_post_image">
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- top-grids -->
+        <!-- /blog-pop-->
+        <div class="modal ab fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog about" role="document">
+                <div class="modal-content about">
+                    <div class="modal-header">
+                        <button type="button" class="close ab" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body about">
+                        <div class="about">
+
+                            <div class="about-inner">
+
+                                <img style="width: 100%;height: 343px;" fallback-src="assets/images/default_thumbnail.jpg" ngf-thumbnail="vmSr.selectedPost.image.path || vmSr.default_post_image">
+                                <h4 class="tittle">{{ vmSr.selectedPost.title }}</h4>
+                                <p>{{ vmSr.selectedPost.content }}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal ab fade" id="addPost" tabindex="-1" role="dialog" aria-labelledby="addPostLabel">
+            <div class="modal-dialog about" role="document">
+                <div class="modal-content about">
+                    <div class="modal-header">
+                        <button type="button" class="close ab" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body about">
+                        <div class="about">
+
+                            <div class="about-inner">
+
+                                <h4 class="tittle" translate="newPub"></h4>
+                                <div class="form-body">
+                                    <form name="publicationForm" novalidate>
+                                        <div class="form-group">
+                                            <label for="pubtitle" class="col-sm-2 control-label" translate="title"></label>
+                                            <div class="col-sm-9"> <input type="text" ng-model="vmSr.newPost.title" class="form-control" id="pubtitle" placeholder="{{'title' | translate}}"> <br>
+
+                                            </div><br>
+                                        </div>
+                                        <div class="form-group">
+                                            <br>
+                                            <label for="postText" class="col-sm-2 control-label" translate="pubtext"></label>
+                                            <div class="col-sm-9">
+                                                <textarea name="postText" id="postText" cols="68" ng-model="vmSr.newPost.content" rows="10" class="form-control1"></textarea>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="form-group">
+
+                                                <div class="form-group col-md-11">
+                                                    <div class="form-group col-md-8 col-md-offset-3">
+                                                        <label for="addTag" translate="ADDTAGS"></label>
+                                                        <select class="form-control" id="addTag" ng-model="vmSr.selectedTag">
+                                                        <option ng-repeat="tag in vmSr.tags" value="{{ tag.id }}">{{ tag.name }}</option>
+                                                    </select>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group ">
+                                                        <button id="addTagBtn" class="btn btn-default" style="border-radius:30%;" ng-click="vmSr.addTag()"><span class="fa fa-plus"></span>
+                                                    </button>
+                                                    </div>
+                                                    <div id="tags" ng-if="vmSr.selectedTags.length !== 0" style="float:left">
+                                                        <ul>
+                                                            <li class="chip" ng-repeat="tag_id in vmSr.selectedTags track by $index">{{ vmSr.getTagName(tag_id) }}
+                                                                <span ng-click="vmSr.removeTag($index)" class="closebtn">&times;</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group ">
+                                            <div class="col-sm-9 col-sm-offset-2">
+                                                <button style="width:100%" type="button " class="btn btn-warning " ngf-select ng-model="vmSr.postfile " name="file " ngf-pattern=" 'image/*' " ngf-accept=" 'image/*' ">
+                                                    <span class="glyphicon glyphicon-upload " aria-hidden="true "></span> <span translate="addPic "></span>
+                                                </button>
+                                                <br>
+                                            </div>
+                                            <br>
+                                        </div>
+                                        <br>
+                                        <button type="submit " class="btn btn-default " translate="addPost " ng-click="vmSr.addPost() "></button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

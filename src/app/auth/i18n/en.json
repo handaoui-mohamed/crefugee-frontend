@@ -1,0 +1,22 @@
+{
+    "EMAIL": "Email",
+    "SIGNIN": "Sign In",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "REMEMBERME": "Remember me ?",
+    "SIGNUP": "Sign Up",
+    "CONFIRMPASSWORD": "Confirm password",
+    "FIELD": {
+        "REQUIRED": "* This field is required",
+        "PASSWORDLENGTH": "Password must be greater than 8!",
+        "PASSWORDMATCH": "The passwords do not match!",
+        "EMAILERROR": "This must be a valid email!"
+    },
+    "CONNECTING": "Connexion in progress ...",
+    "REGISTERSUCCESS": "Account created successfully:",
+    "REDIRECTING": "Redirection to your profile ...",
+    "HELLO": "Hi",
+    "USEREXIST": "Incorrect username or password!",
+    "CONNECTIONERROR": "Connexion error:",
+    "REFUGEE": "I'm a Refugee"
+}

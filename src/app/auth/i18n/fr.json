@@ -1,15 +1,12 @@
 {
     "EMAIL": "Email",
-    "LOGIN": "Se connecter",
+    "SIGNIN": "Se connecter",
     "USERNAME": "Nom d'utilisateur",
     "PASSWORD": "Mot de Passe",
     "REMEMBERME": "Rester connecté ?",
-    "NOACCOUNT": "Pas encore membre ?",
-    "WITHACCOUNT": "Déja un Membre ?",
-    "CREATEACCOUNT": " Créer un compte ",
-    "REGISTER": "S'inscrire",
+    "SIGNUP": "S'inscrire",
     "CONFIRMPASSWORD": "Confirmer Mot de Passe",
-    "FIELD":{
+    "FIELD": {
         "REQUIRED": "* Ce champ est requis",
         "PASSWORDLENGTH": "Mot de passe doit être supèrieur à 8!",
         "PASSWORDMATCH": "les mots de passe ne correspondent pas!",
@@ -20,5 +17,6 @@
     "REDIRECTING": "Redirection vers votre profil ...",
     "HELLO": "Bonjour",
     "USEREXIST": "Le nom d'utilisateur ou mot de passe incorrect!",
-    "CONNECTIONERROR": "Erreur de connexion:"
+    "CONNECTIONERROR": "Erreur de connexion:",
+    "REFUGEE": "Je suis un Réfugié"
 }

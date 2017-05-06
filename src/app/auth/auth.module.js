@@ -1,8 +1,8 @@
-(function () {
+(function() {
     'use strict';
 
     angular
-        .module('app.auth',['satellizer'])
+        .module('app.auth', ['satellizer'])
         .config(config);
 
     function config($stateProvider, $authProvider, $translatePartialLoaderProvider) {

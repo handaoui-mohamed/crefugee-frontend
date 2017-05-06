@@ -12,7 +12,7 @@
             controller: 'MainController as vm',
             templateUrl: 'app/main/main.html'
         });
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/home');
 
         // angular-translate configuration
         $translateProvider.useLoader('$translatePartialLoader', {

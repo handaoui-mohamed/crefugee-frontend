@@ -1,15 +1,194 @@
-<div id="main">
-    <!-- navbar -->
-    <a href="" ng-click="vm.changeLanguage('fr')">francais</a>
-    <a href="" ng-click="vm.changeLanguage('ar')">Arabe</a>
-    <a href="" ng-click="vm.changeLanguage('en')">English</a>
-    <hr>
-    <a ui-sref='main' translate="HOME"></a>
-    <a ui-sref='auth'>login</a>
-    <a ui-sref='main.profile'>profile</a>
-    <a ui-sref='main.search'>search</a>
+<div id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" class="main-page">
+    <!-- banner -->
 
+    <!-- header -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div display="block">
+            <div class="container">
+                <img class="navbar-header page-scroll" src="../../assets/images/had2.png" width="89px">
+
+
+                <h1><a class="navbar-brand" ui-sref="main"> Connected<span>Refugees</span></a></h1>
+            </div>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right cl-effect-15">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <li>
+                    <a class="page-scroll" ui-sref="main.home" translate="home"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" ui-sref="main.search({type:'refugee'})" translate="fhelp"> </a>
+                </li>
+                <li>
+                    <a class="page-scroll" translate="phelp" ui-sref="main.search({type:'helper'})"></a>
+                </li>
+                <li ng-if="current_user"><a class="page-scroll" ui-sref="main.userprofile({username:current_user.username})" data-hover="{{ current_user.full_name || current_user.user.username}}">{{ current_user.full_name || current_user.user.username}}</a></li>
+                <li class="w3ls-navlog" ng-if="!current_user">
+                    <a class="page-scroll" ui-sref="auth" data-toggle="modal" translate="login"></a>
+                </li>
+                <li class="w3ls-navlog" ng-if="current_user">
+                    <a class="page-scroll" href="" ng-click="vm.logout()" data-toggle="modal" translate="logout"></a>
+                </li>
+
+                <li>
+                    <a class="page-scroll language" href="" ng-click="vm.changeLanguage('en')">En</a>
+                </li>
+                <li>
+                    <a class="page-scroll language" href="" ng-click="vm.changeLanguage('fr')">Fr</a>
+                </li>
+                <li>
+                    <a class="page-scroll language" href="" ng-click="vm.changeLanguage('ar')" ;>عر</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+
+        <!-- /.container -->
+    </nav>
+
+    <!-- //header -->
     <div ui-view></div>
 
-    <!-- footer -->
+    <!--footer-->
+    <div class="footer">
+        <div class="footer-bottom">
+            <h2><a href="index.html"><b>T<br>H<br>E</b> Refugees<span> Connected</span></a></h2>
+            <p class="fo-para" translate="hadra"></p>
+            <ul class="social-fo">
+                <li><a href="#" class=" face"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#" class=" twi"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#" class=" pin"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                <li><a href="#" class=" dri"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+            </ul>
+            <div class=" address">
+                <div class="col-md-4 fo-grid1">
+                    <p><i class="fa fa-home" aria-hidden="true" translate="adr"></i></p>
+                </div>
+                <div class="col-md-4 fo-grid1">
+                    <p><i class="fa fa-phone" aria-hidden="true"></i>+213699052734</p>
+                </div>
+                <div class="col-md-4 fo-grid1">
+                    <p><a href="mailto:et_ould_said@eis.dz"><i class="fa fa-envelope-o" aria-hidden="true"></i>et_ould_said@esi.dz</a></p>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="user-chat" ng-if="current_user" ng-init="vm.hideChat = true">
+
+    <!-- Chat-Widget -->
+    <div class="chat-widget agileits w3layouts">
+        <div id="topmenumsg" ng-click="vm.hideChat = false" ng-if="vm.hideChat">
+            <span class="friends agileits w3layouts" style="position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 250px;
+    height: 34px;
+    background-color: #333;
+    text-align: center;
+    font-family: serif;
+    content: 'Message';"> Afficher Messages</span>
+        </div>
+        <div id="chatbox" ng-if="!vm.hideChat">
+
+            <div id="friendslist" ng-show="!vm.show">
+
+                <div id="topmenu" ng-click="vm.hideChat = true">
+                    <span class="friends agileits w3layouts">CONTACTS</span>
+                </div>
+
+                <div id="friends">
+
+                    <div class="friend agileits w3layouts" ng-repeat="user in vm.users | filter:vm.search" ng-if="vm.user.id !== user.id" ng-click="vm.getMessages(user)">
+                        <img fallback-src="assets/images/default_profile_image.jpg" ngf-thumbnail="user.profile_image.path || vm.default_profile_image">
+                        <p>
+                            <strong>{{ user.full_name || user.username }}</strong>
+                            <br>
+                            <span>{{ user.email }}</span>
+                        </p>
+                    </div>
+
+                    <div id="search">
+                        <input type="text" id="searchfield" ng-model="vm.search" placeholder="Search contacts...">
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="vm.show" class="p1 agileits w3layouts">
+
+                <div id="profile">
+                    <div style="float: left; padding: 10px">
+                        <a href="" class="btn btn-primary" ng-click="vm.show = false" style="padding:5px">Return</a>
+                    </div>
+                    <div style="float: right; padding: 10px">
+                        <a href="" class="btn btn-primary" ng-click="vm.hideChat = true" style="padding:5px">Close</a>
+                    </div>
+                    <br>
+                    <p>{{ vm.selectedUser.full_name ||vm.selectedUser.username }}</p>
+                    <span>{{ vm.selectedUser.email }}</span>
+                </div>
+
+                <div id="chat-messages">
+                    <div ng-repeat="msg in vm.messages">
+                        <div class="message agileits w3layouts" ng-if="msg.sender_id === vm.user.id">
+                            <img fallback-src="assets/images/default_profile_image.jpg" ngf-thumbnail="vm.user.profile_image.path || vm.default_profile_image">
+                            <div class="bubble agileits w3layouts">
+                                {{ msg.content }}
+                                <span>{{ vm.getLocalPostTime(msg.sent_at) }}</span>
+                            </div>
+                        </div>
+
+                        <div class="message agileits w3layouts right" ng-if="msg.sender_id !== vm.user.id">
+                            <img fallback-src="assets/images/default_profile_image.jpg" ngf-thumbnail="vm.selectedUser.profile_image.path || vm.default_profile_image">
+                            <div class="bubble agileits w3layouts">
+                                {{ msg.content }}
+                                <span>{{ vm.getLocalPostTime(msg.sent_at) }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sendmessage">
+                    <input type="text" placeholder="Send message..." ng-model="vm.new_message.content">
+                    <button id="send" ng-click="vm.sendMessage()"></button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- //Vertical-Grid-2 -->
+
+    <div class="clear"></div>
+
+</div>
+<!-- Pricing-Popup-Box-JavaScript -->
+<script src="../../assets/js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+    });
+</script>
+<!-- //Pricing-Popup-Box-JavaScript -->
+<!-- Tabs-JavaScript -->
+<script src="../../assets/js/tabs.js"></script>
 </div>

@@ -1,3 +1,10 @@
 {
-    "HOME": "acceuil"
+    "hadra": "",
+    "adr": "Oued Smar, Algérie",
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "home": "Accueil",
+    "fhelp": "Trouve l'aide",
+    "phelp": "Offrir de l'aide",
+    "shexp": "Partager expérience"
 }
